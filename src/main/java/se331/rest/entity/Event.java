@@ -25,7 +25,7 @@ public class Event {
     String vaccinateStatus;
     String firstDose;
     String secondDose;
-
+    String commentTest;
 
 
 

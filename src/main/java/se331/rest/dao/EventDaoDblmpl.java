@@ -21,7 +21,7 @@ public class EventDaoDblmpl implements EventDao{
     @Override
     public Page<Event> getEvents(Integer pageSize, Integer page){
 
-        return eventRepository.findAll(PageRequest.of(page-1, pageSize));
+        return eventRepository.findAll(PageRequest.of(page - 1, pageSize));
     }
 
     @Override

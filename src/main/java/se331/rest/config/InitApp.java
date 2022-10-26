@@ -24,6 +24,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .vaccinateStatus("Second dose")
                 .firstDose("Pfizer")
                 .secondDose("Janssen")
+                .commentTest("comment-1")
                 .build());
 
         eventRepository.save(Event.builder()
@@ -35,6 +36,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .vaccinateStatus("First dose")
                 .firstDose("Moderna")
                 .secondDose("-")
+                .commentTest("comment-2")
                 .build());
         eventRepository.save(Event.builder()
                 .id(3L)
@@ -45,6 +47,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .vaccinateStatus("Second dose")
                 .firstDose("Moderna")
                 .secondDose("Sinopharm")
+                .commentTest("comment-3")
                 .build());
         eventRepository.save(Event.builder()
                 .id(4L)
@@ -55,6 +58,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .vaccinateStatus("Second dose")
                 .firstDose("Oxford")
                 .secondDose("Janssen")
+                .commentTest("comment-4")
                 .build());
         eventRepository.save(Event.builder()
                 .id(5L)
@@ -65,6 +69,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .vaccinateStatus("First dose")
                 .firstDose("Moderna")
                 .secondDose("-")
+                .commentTest("comment-5")
                 .build());
         eventRepository.save(Event.builder()
                 .id(6L)
@@ -75,6 +80,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .vaccinateStatus("Second dose")
                 .firstDose("Sputnik V")
                 .secondDose("Janssen")
+                .commentTest("comment-6")
                 .build());
         eventRepository.save(Event.builder()
                 .id(7L)
@@ -85,6 +91,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .vaccinateStatus("First dose")
                 .firstDose("Sinopharm")
                 .secondDose("-")
+                .commentTest("comment-7")
                 .build());
         eventRepository.save(Event.builder()
                 .id(8L)
@@ -95,6 +102,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .vaccinateStatus("First dose")
                 .firstDose("Pfizer")
                 .secondDose("-")
+                .commentTest("comment-8")
                 .build());
         eventRepository.save(Event.builder()
                 .id(9L)
@@ -105,6 +113,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .vaccinateStatus("Second dose")
                 .firstDose("Pfizer")
                 .secondDose("Oxford")
+                .commentTest("comment-9")
                 .build());
         eventRepository.save(Event.builder()
                 .id(10L)
@@ -115,6 +124,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .vaccinateStatus("Second dose")
                 .firstDose("Pfizer")
                 .secondDose("Pfizer")
+                .commentTest("comment-10")
                 .build());
 
     }
