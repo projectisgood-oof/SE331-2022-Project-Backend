@@ -1,2 +1,4 @@
-package se331.rest.dao;public class EventDaoDblmpl {
+package se331.rest.dao;
+
+public class EventDaoDblmpl {
 }
