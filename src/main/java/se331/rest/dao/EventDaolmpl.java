@@ -1,6 +1,9 @@
 package se331.rest.dao;
 
 import org.springframework.context.annotation.Profile;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Repository;
 import se331.rest.entity.Event;
 
@@ -128,19 +131,19 @@ public class EventDaolmpl implements EventDao{
 
     }
 
+
     @Override
     public Integer getEventSize(){
         return eventList.size();
     }
 
     @Override
-    public List<Event> getEvents(Integer pageSize, Integer page){
+    public Page<Event> getEvents(Integer pageSize, Integer page){
         pageSize = pageSize == null ? eventList.size() : pageSize;
         page = page == null ? 1 : page;
 
         int firstIndex = (page - 1) * pageSize;
-        return eventList.subList(firstIndex,firstIndex+pageSize);
-
+        return new PageImpl<Event>(eventList.subList(firstIndex, firstIndex + pageSize), PageRequest.of(page,pageSize),eventList.size());
     }
 
     @Override
@@ -149,5 +152,13 @@ public class EventDaolmpl implements EventDao{
         return eventList.stream().filter(event -> event.getID().equals(id)).findFirst().orElse(null);
 
     }
+
+    @Override
+    public Event save(Event event){
+        event.setID(eventList.get(eventList.size()-1).getID()+1);
+        eventList.add(event);
+        return event;
+    }
+
 
 }
