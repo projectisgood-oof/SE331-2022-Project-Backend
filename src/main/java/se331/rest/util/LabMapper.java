@@ -1,4 +1,4 @@
-package util;
+package se331.rest.util;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
@@ -11,5 +11,5 @@ import java.util.List;
 public interface LabMapper {
     LabMapper INSTANCE = Mappers.getMapper(LabMapper.class);
     EventDTO getEventDto(Event event);
-    List<EventDTO> getEventDTO(List<Event> events);
+    List<EventDTO> getEventDto(List<Event> content);
 }
