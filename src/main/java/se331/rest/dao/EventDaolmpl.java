@@ -11,8 +11,9 @@ import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 
-@Repository
 @Profile("manual")
+@Repository
+
 public class EventDaolmpl implements EventDao{
     List<Event> eventList;
 
@@ -142,7 +143,7 @@ public class EventDaolmpl implements EventDao{
         pageSize = pageSize == null ? eventList.size() : pageSize;
         page = page == null ? 1 : page;
         int firstIndex = (page - 1) * pageSize;
-        return new PageImpl<Event>(eventList.subList(firstIndex, firstIndex + pageSize), PageRequest.of(page,pageSize),eventList.size());
+        return new PageImpl<>(eventList.subList(firstIndex, firstIndex + pageSize), PageRequest.of(page, pageSize),eventList.size());
     }
 
     @Override

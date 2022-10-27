@@ -12,12 +12,13 @@ import lombok.NoArgsConstructor;
 
 public class EventDTO {
     Long id;
-    String category;
-    String title;
-    String description;
-    String location;
-    String date;
-    String time;
-    Boolean petAllowed;
+    String name;
+    String surname;
+    String homeTown;
+    String age;
+    String vaccinateStatus;
+    String firstDose;
+    String secondDose;
+    String commentTest;
     EventDoctorDTO doctor;
 }

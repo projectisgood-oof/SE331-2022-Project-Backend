@@ -28,8 +28,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         doc3 = doctorRepository.save(Doctor.builder().name("Doctor Phone").build());
         Event tempEvent;
         tempEvent = eventRepository.save(Event.builder()
-                .id(1L)
-                .name("Jevan")
+                .name("Jevan fkID")
                 .surname("Wilson")
                 .homeTown("907 Pennington Lane Ankeny, IA 50023")
                 .age("29")
@@ -42,7 +41,6 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         tempEvent.setDoctor(doc1);
         doc1.getOwnEvents().add(tempEvent);
         tempEvent = eventRepository.save(Event.builder()
-                .id(2L)
                 .name("Evelyn")
                 .surname("Horne")
                 .homeTown("8657 Prairie Drive Reynoldsburg, OH 43068")
@@ -56,7 +54,6 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         tempEvent.setDoctor(doc2);
         doc2.getOwnEvents().add(tempEvent);
         tempEvent = eventRepository.save(Event.builder()
-                .id(3L)
                 .name("Tara")
                 .surname("Hastings")
                 .homeTown("9728 North Ridgewood Drive Randallstown, MD 21133")
@@ -70,7 +67,6 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         tempEvent.setDoctor(doc3);
         doc3.getOwnEvents().add(tempEvent);
         tempEvent = eventRepository.save(Event.builder()
-                .id(4L)
                 .name("Will")
                 .surname("Dickens")
                 .homeTown("7826 Prince Rd. Newark, NJ 07103")
@@ -84,7 +80,6 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         tempEvent.setDoctor(doc1);
         doc1.getOwnEvents().add(tempEvent);
         tempEvent = eventRepository.save(Event.builder()
-                .id(5L)
                 .name("Daniel")
                 .surname("Lees")
                 .homeTown("231 Bedford Street Canal Winchester, OH 43110")
@@ -98,7 +93,6 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         tempEvent.setDoctor(doc1);
         doc1.getOwnEvents().add(tempEvent);
         tempEvent = eventRepository.save(Event.builder()
-                .id(6L)
                 .name("Farzana")
                 .surname("Rennie")
                 .homeTown("7578 NW. Green Street Taunton, MA 02780")
@@ -112,7 +106,6 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         tempEvent.setDoctor(doc2);
         doc2.getOwnEvents().add(tempEvent);
         tempEvent = eventRepository.save(Event.builder()
-                .id(7L)
                 .name("Ishaaq")
                 .surname("Brook")
                 .homeTown("494 Wintergreen St. Berwyn, IL 60402")
@@ -126,7 +119,6 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         tempEvent.setDoctor(doc3);
         doc3.getOwnEvents().add(tempEvent);
         tempEvent = eventRepository.save(Event.builder()
-                .id(8L)
                 .name("Mia-Rose")
                 .surname("Zamora")
                 .homeTown("8400 Inverness Avenue Boca Raton, FL 33428")
@@ -140,7 +132,6 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         tempEvent.setDoctor(doc1);
         doc1.getOwnEvents().add(tempEvent);
         tempEvent = eventRepository.save(Event.builder()
-                .id(9L)
                 .name("Yvette")
                 .surname("Hendricks")
                 .homeTown("3 Smith Drive Kingsport, TN 37660")
@@ -154,7 +145,6 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         tempEvent.setDoctor(doc1);
         doc1.getOwnEvents().add(tempEvent);
         tempEvent = eventRepository.save(Event.builder()
-                .id(10L)
                 .name("Aleeza")
                 .surname("Alford")
                 .homeTown("723 North Carson Dr. Owensboro, KY 42301")
