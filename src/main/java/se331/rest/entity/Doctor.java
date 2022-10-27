@@ -3,6 +3,7 @@ package se331.rest.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -18,5 +19,6 @@ public class Doctor {
     Long id;
     String name;
     @OneToMany(mappedBy = "doctor")
-    List<Event> eventHistory;
+    @Builder.Default
+    List<Event> ownEvents = new ArrayList<>();
 }
