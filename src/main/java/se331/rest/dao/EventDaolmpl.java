@@ -141,7 +141,6 @@ public class EventDaolmpl implements EventDao{
     public Page<Event> getEvents(Integer pageSize, Integer page){
         pageSize = pageSize == null ? eventList.size() : pageSize;
         page = page == null ? 1 : page;
-
         int firstIndex = (page - 1) * pageSize;
         return new PageImpl<Event>(eventList.subList(firstIndex, firstIndex + pageSize), PageRequest.of(page,pageSize),eventList.size());
     }

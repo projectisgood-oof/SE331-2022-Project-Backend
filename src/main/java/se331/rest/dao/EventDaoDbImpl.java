@@ -7,10 +7,9 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Repository;
 import se331.rest.entity.Event;
 import se331.rest.repository.EventRepository;
-
-@Repository
 @Profile("db")
-public class EventDaoDblmpl implements EventDao{
+@Repository
+public class EventDaoDbImpl implements EventDao{
     @Autowired
     EventRepository eventRepository;
     @Override
@@ -20,14 +19,11 @@ public class EventDaoDblmpl implements EventDao{
 
     @Override
     public Page<Event> getEvents(Integer pageSize, Integer page){
-
-        return eventRepository.findAll(PageRequest.of(page - 1, pageSize));
+        return eventRepository.findAll(PageRequest.of(page-1, pageSize));
     }
 
     @Override
-    public Event getEvent(Long id) {
-        return null;
-    }
+    public Event getEvent(Long id) { return eventRepository.findById(id).orElse( null); }
 
     @Override
     public Event save(Event event){

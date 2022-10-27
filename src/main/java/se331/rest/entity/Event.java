@@ -14,9 +14,8 @@ import javax.persistence.Id;
 @AllArgsConstructor
 public class Event {
     @Id
-            @GeneratedValue(strategy = GenerationType.IDENTITY)
-            @EqualsAndHashCode.Exclude
-
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @EqualsAndHashCode.Exclude
     Long id;
     String name;
     String surname;
