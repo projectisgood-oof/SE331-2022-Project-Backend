@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import se331.rest.entity.Docter;
 import se331.rest.repository.DocterRepository;
 
+import java.util.Optional;
 
 
 @Repository
@@ -16,5 +17,9 @@ public class DocterDaoImpl implements DocterDao {
     @Override
     public Page<Docter> getDocter(Pageable pageRequest) {
         return docterRepository.findAll(pageRequest);
+    }
+    @Override
+    public Optional<Docter> findById(Long id) {
+        return docterRepository.findById(id);
     }
 }

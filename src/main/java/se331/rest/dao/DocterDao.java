@@ -4,6 +4,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import se331.rest.entity.Docter;
 
+import java.util.Optional;
+
 public interface DocterDao {
     Page<Docter> getDocter(Pageable pageRequest);
+        Optional<Docter> findById(Long id);
 }
