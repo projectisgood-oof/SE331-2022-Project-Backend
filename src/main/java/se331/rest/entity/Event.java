@@ -3,7 +3,6 @@ package se331.rest.entity;
 import lombok.*;
 
 import javax.persistence.*;
-import javax.servlet.http.Part;
 import java.util.List;
 
 @Data
@@ -29,15 +28,5 @@ public class Event {
     @ManyToMany(mappedBy = "eventHistory")
     List<Participant> participants;
 
-
-
-
-    public Long getID() {
-        return id;
-    }
-
-    public void setID(Long id) {
-        this.id = id;
-    }
 
 }

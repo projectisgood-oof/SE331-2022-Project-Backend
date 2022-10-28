@@ -21,7 +21,7 @@ public class Project2Y3Application {
             public void addCorsMappings(CorsRegistry registry){
                 registry.addMapping("/**")
                         .allowedOrigins("http://localhost:3000")
-                .exposedHeaders("x-total-count");
+                        .exposedHeaders("x-total-count");
             }
         };
     }

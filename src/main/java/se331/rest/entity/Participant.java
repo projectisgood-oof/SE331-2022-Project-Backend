@@ -13,8 +13,8 @@ import java.util.List;
 
 public class Participant {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @EqualsAndHashCode.Exclude
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @EqualsAndHashCode.Exclude
     Long id;
     String name;
     String telNo;

@@ -5,10 +5,13 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 import se331.rest.entity.Event;
 import se331.rest.repository.EventRepository;
+
 @Profile("db")
 @Repository
+@Service
 public class EventDaoDbImpl implements EventDao{
     @Autowired
     EventRepository eventRepository;
@@ -19,7 +22,7 @@ public class EventDaoDbImpl implements EventDao{
 
     @Override
     public Page<Event> getEvents(Integer pageSize, Integer page){
-        return eventRepository.findAll(PageRequest.of(page-1, pageSize));
+        return eventRepository.findAll(PageRequest.of(page-1,pageSize));
     }
 
     @Override

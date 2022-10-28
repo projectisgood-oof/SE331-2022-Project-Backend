@@ -7,7 +7,7 @@ import se331.rest.dao.EventDao;
 import se331.rest.entity.Event;
 
 @Service
-public class EventServicelmpl implements EventService{
+public class EventServiceImpl implements EventService{
     @Autowired
     EventDao eventDao;
 
