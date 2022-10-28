@@ -28,7 +28,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         doc3 = doctorRepository.save(Doctor.builder().name("Doctor Phone").build());
         Event tempEvent;
         tempEvent = eventRepository.save(Event.builder()
-                .name("Jevan fkID")
+                .name("Jevan test")
                 .surname("Wilson")
                 .homeTown("907 Pennington Lane Ankeny, IA 50023")
                 .age("29")
