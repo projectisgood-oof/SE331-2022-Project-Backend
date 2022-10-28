@@ -24,7 +24,7 @@ public class Event {
     String secondDose;
     String commentTest;
     @ManyToOne
-    Doctor doctor;
+    Docter docter;
     @ManyToMany(mappedBy = "eventHistory")
     List<Participant> participants;
 

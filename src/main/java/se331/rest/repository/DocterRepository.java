@@ -1,8 +1,8 @@
 package se331.rest.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import se331.rest.entity.Doctor;
+import se331.rest.entity.Docter;
 
-public interface DoctorRepository extends JpaRepository<Doctor,Long> {
+public interface DocterRepository extends JpaRepository<Docter,Long> {
     //List<Event> findAll();
 }

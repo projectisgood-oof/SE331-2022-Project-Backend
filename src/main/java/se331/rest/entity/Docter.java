@@ -12,13 +12,13 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Doctor {
+public class Docter {
     @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @EqualsAndHashCode.Exclude
     Long id;
     String name;
-    @OneToMany(mappedBy = "doctor")
+    @OneToMany(mappedBy = "docter")
     @Builder.Default
     List<Event> ownEvents = new ArrayList<>();
 }
