@@ -14,7 +14,7 @@ import java.util.List;
 
 @Profile("manual")
 @Repository
-public class EventDaolmpl implements EventDao{
+public class EventDaolmpl {
     List<Event> eventList;
 
     @PostConstruct
@@ -39,12 +39,12 @@ public class EventDaolmpl implements EventDao{
     }
 
 
-    @Override
+
     public Integer getEventSize(){
         return eventList.size();
     }
 
-    @Override
+
     public Page<Event> getEvents(Integer pageSize, Integer page) {
         pageSize = pageSize == null ? eventList.size() : pageSize;
         page = page == null ? 1 : page;
@@ -55,14 +55,14 @@ public class EventDaolmpl implements EventDao{
                 ;
     }
 
-    @Override
+
     public Event getEvent(Long id){
 
         return eventList.stream().filter(event -> event.getId().equals(id)).findFirst().orElse(null);
 
     }
 
-    @Override
+
     public Event save(Event event){
         event.setId(eventList.get(eventList.size()-1).getId()+1);
         eventList.add(event);

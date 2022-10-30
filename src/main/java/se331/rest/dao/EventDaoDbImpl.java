@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import se331.rest.entity.Event;
@@ -31,6 +32,11 @@ public class EventDaoDbImpl implements EventDao{
     @Override
     public Event save(Event event){
         return eventRepository.save(event);
+    }
+
+    public Page<Event> getEvent(String title, Pageable page) {
+        return eventRepository.findByName(title,page);
+//        return eventRepository.findByTitleIgnoreCaseContainingOrDescriptionIgnoreCaseContainingOrOrganizer_NameIgnore(title,title,title,page);
     }
 
 }

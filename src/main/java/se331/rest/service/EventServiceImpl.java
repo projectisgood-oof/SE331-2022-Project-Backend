@@ -2,6 +2,7 @@ package se331.rest.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import se331.rest.dao.DocterDao;
@@ -39,4 +40,9 @@ public class EventServiceImpl implements EventService{
         docter.getOwnEvents().add(event);
         return eventDao.save(event);
     }
+    @Override
+    public Page<Event> getEvents(String title, Pageable pageable) {
+        return eventDao.getEvent(title,pageable);
+    }
+
 }
