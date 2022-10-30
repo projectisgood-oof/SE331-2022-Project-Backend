@@ -9,5 +9,8 @@ import java.util.List;
 
 public interface EventRepository extends JpaRepository<Event, Long> {
     List<Event> findAll();
-    Page<Event> findByName(String Name, Pageable pageRequest);
+    Page<Event> findByNameIgnoreCase(String name, Pageable pageRequest);
+    Page<Event> findByNameContainingIgnoreCaseOrDocterContainingIgnoreCase(String name, String docter, Pageable pageable);
+
+
 }
