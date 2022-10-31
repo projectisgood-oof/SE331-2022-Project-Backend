@@ -6,6 +6,7 @@ import se331.rest.entity.Docter;
 import se331.rest.entity.DocterDTO;
 import se331.rest.entity.Event;
 import se331.rest.entity.EventDTO;
+//import se331.rest.security.entity.DoctorAuthDTO;
 
 import java.util.List;
 
@@ -19,5 +20,7 @@ public interface LabMapper2 {
     List<EventDTO> getEventDto(List<Event> events);
     DocterDTO getDocterDTO(Docter docter);
     List<DocterDTO> getDocterDTO(List<Docter> docters);
+//    DoctorAuthDTO getDoctorAuthDTO(Docter organizer);
+
 
 }

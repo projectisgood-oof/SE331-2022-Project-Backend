@@ -35,9 +35,9 @@ public class EventDaoDbImpl implements EventDao{
     }
 
     public Page<Event> getEvent(String title, Pageable page) {
-        //return eventRepository.findByNameIgnoreCase(title,page);
+        return eventRepository.findByNameContainingIgnoreCase(title,page);
         //return eventRepository.findByNameIgnoreCaseOrDocterIgnoreCase(title,title,page);
-        return eventRepository.findByNameContainingIgnoreCaseOrDocterContainingIgnoreCase(title,title,page);
+        //return eventRepository.findByNameContainingIgnoreCaseOrDocterContainingIgnoreCase(title,title,page);
     }
 
 }

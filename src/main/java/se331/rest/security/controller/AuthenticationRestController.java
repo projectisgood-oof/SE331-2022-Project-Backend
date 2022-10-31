@@ -16,7 +16,7 @@ import se331.rest.security.entity.JwtUser;
 import se331.rest.security.entity.User;
 import se331.rest.security.repository.UserRepository;
 import se331.rest.security.util.JwtTokenUtil;
-import se331.rest.util.LabMapper;
+import se331.rest.util.LabMapper2;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
@@ -63,7 +63,7 @@ public class AuthenticationRestController {
 //        }
         User user = userRepository.findById(((JwtUser) userDetails).getId()).orElse(null);
         if (user.getOrganizer() != null) {
-            result.put("user", LabMapper.INSTANCE.getOrganizerAuthDTO( user.getOrganizer()));
+            result.put("user", LabMapper2.INSTANCE.getDoctorAuthDTO( user.getOrganizer()));
         }
 
         return ResponseEntity.ok(result);

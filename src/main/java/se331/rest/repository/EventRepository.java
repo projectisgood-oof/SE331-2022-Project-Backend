@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface EventRepository extends JpaRepository<Event, Long> {
     List<Event> findAll();
-    Page<Event> findByNameIgnoreCase(String name, Pageable pageRequest);
+    Page<Event> findByNameContainingIgnoreCase(String name, Pageable pageRequest);
     Page<Event> findByNameContainingIgnoreCaseOrDocterContainingIgnoreCase(String name, String docter, Pageable pageable);
 
 
