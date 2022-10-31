@@ -20,7 +20,7 @@ public class EventController {
     @Autowired
     EventService eventService;
 
-    @GetMapping("events")
+    @GetMapping("event")
     public ResponseEntity<?> getEventLists(@RequestParam(value = "_limit", required = false) Integer perPage
             , @RequestParam(value = "_page", required = false) Integer page,
                                            @RequestParam(value = "title", required = false) String title) {
@@ -43,7 +43,7 @@ public class EventController {
 
     }
 
-    @GetMapping("events/{id}")
+    @GetMapping("event/{id}")
     public ResponseEntity<?> getEvent(@PathVariable("id") Long id) {
         Event output = eventService.getEvent(id);
         if(output != null){
@@ -53,7 +53,7 @@ public class EventController {
         }
     }
 
-    @PostMapping("/events")
+    @PostMapping("/event")
     public ResponseEntity<?> addEvent(@RequestBody Event event){
         Event output = eventService.save(event);
         return ResponseEntity.ok(LabMapper2.INSTANCE.getEventDto(output));

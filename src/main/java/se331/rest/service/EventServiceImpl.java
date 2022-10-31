@@ -40,10 +40,12 @@ public class EventServiceImpl implements EventService{
         docter.getOwnEvents().add(event);
         return eventDao.save(event);
     }
-    @Override
-    public Page<Event> getEvents(String name, Pageable pageable) {
 
-        return eventDao.getEvent(name,pageable);
+
+    @Override
+    public Page<Event> getEvents(String title, Pageable pageable){
+
+        return eventDao.getEvent(title,pageable);
     }
 
 }
