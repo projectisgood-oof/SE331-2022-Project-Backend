@@ -13,8 +13,6 @@ import se331.rest.entity.Event;
 import se331.rest.service.EventService;
 import se331.rest.util.LabMapper2;
 
-import java.util.List;
-
 
 @Controller
 public class EventController {
@@ -35,7 +33,8 @@ public class EventController {
             pageOutput =
                     eventService.getEvents(title, PageRequest.of(page -1 ,perPage));
         }
-        List<Event> output = null;
+        //List<Event> output = null;
+        System.out.println(pageOutput);
         HttpHeaders responseHeader = new HttpHeaders();
 
         responseHeader.set("x-total-count", String.valueOf(pageOutput.getTotalElements()));

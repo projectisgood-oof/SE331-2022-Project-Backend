@@ -8,10 +8,8 @@ import se331.rest.entity.DocterDTO;
 import se331.rest.entity.Event;
 import se331.rest.entity.EventDTO;
 import se331.rest.security.entity.DoctorAuthDTO;
-//import se331.rest.security.entity.DoctorAuthDTO;
 
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 @Mapper(imports = Collectors.class)
@@ -25,8 +23,8 @@ public interface LabMapper2 {
     DocterDTO getDocterDTO(Docter docter);
     List<DocterDTO> getDocterDTO(List<Docter> docters);
     @Mapping( target = "authorities",
-            expression = "java(organizer.getUser().getAuthorities().stream().map(auth -> auth.getName().name()).collect(Collectors.toList()))")
-    DoctorAuthDTO getDoctorAuthDTO(Docter organizer);
+            expression = "java(docter.getUser().getAuthorities().stream().map(auth -> auth.getName().name()).collect(Collectors.toList()))")
+    DoctorAuthDTO getDoctorAuthDTO(Docter docter);
 
 
 }
