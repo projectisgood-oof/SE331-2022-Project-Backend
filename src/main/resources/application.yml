@@ -10,3 +10,15 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create
+  servlet:
+    multipart:
+      max-file-size: 10MB
+jwt:
+  header: Authorization
+  secret: "KbPeShVkYp3s6v9y$B&E)H@McQfTjWnZq4t7w!z%C*F-JaNdRgUkXp2s5u8x/A?D"
+  expiration: 60480000
+  route:
+    authentication:
+      path: auth
+      refresh: refresh
+

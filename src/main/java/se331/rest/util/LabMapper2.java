@@ -1,16 +1,20 @@
 package se331.rest.util;
 
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 import se331.rest.entity.Docter;
 import se331.rest.entity.DocterDTO;
 import se331.rest.entity.Event;
 import se331.rest.entity.EventDTO;
+import se331.rest.security.entity.DoctorAuthDTO;
 //import se331.rest.security.entity.DoctorAuthDTO;
 
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
-@Mapper
+@Mapper(imports = Collectors.class)
 public interface LabMapper2 {
 
     LabMapper2 INSTANCE = Mappers.getMapper(LabMapper2.class);
@@ -20,7 +24,9 @@ public interface LabMapper2 {
     List<EventDTO> getEventDto(List<Event> events);
     DocterDTO getDocterDTO(Docter docter);
     List<DocterDTO> getDocterDTO(List<Docter> docters);
-//    DoctorAuthDTO getDoctorAuthDTO(Docter organizer);
+    @Mapping( target = "authorities",
+            expression = "java(organizer.getUser().getAuthorities().stream().map(auth -> auth.getName().name()).collect(Collectors.toList()))")
+    DoctorAuthDTO getDoctorAuthDTO(Docter organizer);
 
 
 }

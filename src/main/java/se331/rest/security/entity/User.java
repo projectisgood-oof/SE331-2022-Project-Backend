@@ -63,6 +63,6 @@ public class User {
     private List<Authority> authorities = new ArrayList<>();
 
     @OneToOne
-     Docter organizer;
+     Docter doctor;
 
 }

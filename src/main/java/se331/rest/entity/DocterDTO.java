@@ -16,4 +16,5 @@ public class DocterDTO {
     Long id;
     String name;
     List<DocterOwnEventsDTO> ownEvents = new ArrayList<>();
+
 }
