@@ -10,4 +10,4 @@ https://github.com/projectisgood-oof/SE331-2022-Project-Frontend
 Front-end >> http://localhost:3000/
 
 https://github.com/projectisgood-oof/SE331-2022-Project-Backend
-Back-end >> http://localhost:8080/events
+Back-end >> http://localhost:8080/event
