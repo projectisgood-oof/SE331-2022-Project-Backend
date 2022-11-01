@@ -8,4 +8,6 @@ import java.util.List;
 public interface DocterService {
     List<Docter> getAllDocter();
     Page<Docter> getDocter(Integer page, Integer pageSize);
+
+    Docter getDocter(Long id);
 }

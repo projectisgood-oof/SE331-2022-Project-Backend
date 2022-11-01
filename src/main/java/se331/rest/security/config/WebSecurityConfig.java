@@ -41,8 +41,10 @@ public class WebSecurityConfig {
                 .authorizeRequests()
                 .antMatchers("/auth/**",  "/refresh").permitAll()
                 .antMatchers(HttpMethod.GET,"/events").permitAll()
+                .antMatchers(HttpMethod.GET,"/docters").permitAll()
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .antMatchers(HttpMethod.POST,"/events").hasRole("ADMIN")
+                .antMatchers(HttpMethod.POST,"/docters").hasRole("ADMIN")
                 .anyRequest()
                 .authenticated();
         http.addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter.class);

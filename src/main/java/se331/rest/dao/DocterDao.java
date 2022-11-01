@@ -7,6 +7,10 @@ import se331.rest.entity.Docter;
 import java.util.Optional;
 
 public interface DocterDao {
+
+    Integer getDocterSize();
     Page<Docter> getDocter(Pageable pageRequest);
+
+    Docter getDocter(Long id);
         Optional<Docter> findById(Long id);
 }

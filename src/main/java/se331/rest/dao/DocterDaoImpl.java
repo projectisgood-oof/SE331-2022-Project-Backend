@@ -14,10 +14,22 @@ import java.util.Optional;
 public class DocterDaoImpl implements DocterDao {
     @Autowired
     DocterRepository docterRepository;
+
+    @Override
+    public Integer getDocterSize() {
+        return null;
+    }
+
     @Override
     public Page<Docter> getDocter(Pageable pageRequest) {
         return docterRepository.findAll(pageRequest);
     }
+
+    @Override
+    public Docter getDocter(Long id) {
+        return docterRepository.findById(id).orElse( null);
+    }
+
     @Override
     public Optional<Docter> findById(Long id) {
         return docterRepository.findById(id);

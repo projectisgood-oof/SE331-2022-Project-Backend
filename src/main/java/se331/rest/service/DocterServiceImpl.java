@@ -7,6 +7,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import se331.rest.dao.DocterDao;
 import se331.rest.entity.Docter;
+import se331.rest.entity.Event;
 
 import java.util.List;
 
@@ -23,4 +24,12 @@ public class DocterServiceImpl implements DocterService{
     public Page<Docter> getDocter(Integer page, Integer pageSize) {
         return docterDao.getDocter(PageRequest.of(page,pageSize));
     }
+
+    @Override
+    public Docter getDocter(Long id) {
+        return docterDao.getDocter(id);
+    }
+
+
+
 }
