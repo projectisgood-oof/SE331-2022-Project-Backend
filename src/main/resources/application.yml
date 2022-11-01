@@ -15,8 +15,8 @@ spring:
       max-file-size: 10MB
 jwt:
   header: Authorization
-  secret: "KbPeShVkYp3s6v9y$B&E)H@McQfTjWnZq4t7w!z%C*F-JaNdRgUkXp2s5u8x/A?D"
-  expiration: 60480000
+  secret: "A%D*G-KaPdSgVkYp3s5v8y/B?E(H+MbQeThWmZq4t7w9z$C&F)J@NcRfUjXn2r5u"
+  expiration: 60480000000
   route:
     authentication:
       path: auth
