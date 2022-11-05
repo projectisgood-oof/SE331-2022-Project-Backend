@@ -21,7 +21,7 @@ public class Docter {
     String name;
     @OneToMany(mappedBy = "docter")
     @Builder.Default
-    List<Event> ownEvents = new ArrayList<>();
+    List<Patient> ownEvents = new ArrayList<>();
     @OneToOne
     User user;
 }

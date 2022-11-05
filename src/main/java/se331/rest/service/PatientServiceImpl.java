@@ -6,46 +6,46 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import se331.rest.dao.DocterDao;
-import se331.rest.dao.EventDao;
+import se331.rest.dao.PatientDao;
 import se331.rest.entity.Docter;
-import se331.rest.entity.Event;
+import se331.rest.entity.Patient;
 
 @Service
-public class EventServiceImpl implements EventService{
+public class PatientServiceImpl implements PatientService {
     @Autowired
-    EventDao eventDao;
+    PatientDao patientDao;
     @Autowired
     DocterDao docterDao;
 
     @Override
     public Integer getEventSize() {
-        return eventDao.getEventSize();
+        return patientDao.getEventSize();
     }
 
     @Override
-    public Page<Event> getEvents(Integer pageSize, Integer page){
-        return eventDao.getEvents(pageSize, page);
+    public Page<Patient> getEvents(Integer pageSize, Integer page){
+        return patientDao.getEvents(pageSize, page);
     }
 
     @Override
-    public Event getEvent(Long id){
-        return eventDao.getEvent(id);
+    public Patient getEvent(Long id){
+        return patientDao.getEvent(id);
     }
 
     @Override
     @Transactional
-    public Event save(Event event){
+    public Patient save(Patient event){
         Docter docter = docterDao.findById(event.getDocter().getId()).orElse(null);
         event.setDocter(docter);
         docter.getOwnEvents().add(event);
-        return eventDao.save(event);
+        return patientDao.save(event);
     }
 
 
     @Override
-    public Page<Event> getEvents(String title, Pageable pageable){
+    public Page<Patient> getEvents(String title, Pageable pageable){
 
-        return eventDao.getEvent(title,pageable);
+        return patientDao.getEvent(title,pageable);
     }
 
 }

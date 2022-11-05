@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class EventDocterDTO {
+public class PatientDocterDTO {
     Long id;
     String name;
 }

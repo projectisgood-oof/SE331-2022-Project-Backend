@@ -19,5 +19,5 @@ public class Participant {
     String name;
     String telNo;
     @ManyToMany
-    List<Event> eventHistory;
+    List<Patient> eventHistory;
 }

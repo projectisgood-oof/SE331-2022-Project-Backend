@@ -1,4 +1,4 @@
-package se331.rest.security.service;
+package se331.rest.security.repository.service;
 
 import java.io.Serializable;
 

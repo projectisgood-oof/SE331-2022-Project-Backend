@@ -9,29 +9,29 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-import se331.rest.entity.Event;
-import se331.rest.service.EventService;
+import se331.rest.entity.Patient;
+import se331.rest.service.PatientService;
 import se331.rest.util.LabMapper2;
 
 
 @Controller
-public class EventController {
+public class PatientController {
 
     @Autowired
-    EventService eventService;
+    PatientService patientService;
 
-    @GetMapping("events")
+    @GetMapping("patients")
     public ResponseEntity<?> getEventLists(@RequestParam(value = "_limit", required = false) Integer perPage
             , @RequestParam(value = "_page", required = false) Integer page,
                                            @RequestParam(value = "title", required = false) String title) {
         perPage = perPage ==null ? 3 : perPage;
         page = page == null ? 1 : page ;
-        Page<Event> pageOutput;
+        Page<Patient> pageOutput;
         if(title == null) {
-            pageOutput = eventService.getEvents(perPage,page);
+            pageOutput = patientService.getEvents(perPage,page);
         }else{
             pageOutput =
-                    eventService.getEvents(title, PageRequest.of(page -1 ,perPage));
+                    patientService.getEvents(title, PageRequest.of(page -1 ,perPage));
         }
         //List<Event> output = null;
         System.out.println(pageOutput);
@@ -43,9 +43,9 @@ public class EventController {
 
     }
 
-    @GetMapping("events/{id}")
+    @GetMapping("patients/{id}")
     public ResponseEntity<?> getEvent(@PathVariable("id") Long id) {
-        Event output = eventService.getEvent(id);
+        Patient output = patientService.getEvent(id);
         if(output != null){
             return ResponseEntity.ok(LabMapper2.INSTANCE.getEventDto(output));
         }else{
@@ -53,9 +53,9 @@ public class EventController {
         }
     }
 
-    @PostMapping("/events")
-    public ResponseEntity<?> addEvent(@RequestBody Event event){
-        Event output = eventService.save(event);
+    @PostMapping("/patients")
+    public ResponseEntity<?> addEvent(@RequestBody Patient event){
+        Patient output = patientService.save(event);
         return ResponseEntity.ok(LabMapper2.INSTANCE.getEventDto(output));
     }
 

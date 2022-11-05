@@ -9,9 +9,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import se331.rest.entity.Docter;
-import se331.rest.entity.Event;
+import se331.rest.entity.Patient;
 import se331.rest.repository.DocterRepository;
-import se331.rest.repository.EventRepository;
+import se331.rest.repository.PatientRepository;
 import se331.rest.security.entity.Authority;
 import se331.rest.security.entity.AuthorityName;
 import se331.rest.security.entity.User;
@@ -25,7 +25,7 @@ import java.time.ZoneId;
 @Component
 public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
     @Autowired
-    EventRepository eventRepository;
+    PatientRepository patientRepository;
     @Autowired
     DocterRepository docterRepository;
 
@@ -40,8 +40,8 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         doc1 = docterRepository.save(Docter.builder().name("Dr'Pop").build());
         doc2 = docterRepository.save(Docter.builder().name("Dr'Pon").build());
         doc3 = docterRepository.save(Docter.builder().name("Dr'Phone").build());
-        Event tempEvent;
-        tempEvent = eventRepository.save(Event.builder()
+        Patient tempPatient;
+        tempPatient = patientRepository.save(Patient.builder()
 
                 .name("Jevan")
                 .surname("Wilson")
@@ -53,9 +53,9 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .commentTest("comment-1")
                 .build());
 
-        tempEvent.setDocter(doc1);
-        doc1.getOwnEvents().add(tempEvent);
-        tempEvent = eventRepository.save(Event.builder()
+        tempPatient.setDocter(doc1);
+        doc1.getOwnEvents().add(tempPatient);
+        tempPatient = patientRepository.save(Patient.builder()
 
                 .name("Evelyn")
                 .surname("Horne")
@@ -67,9 +67,9 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .commentTest("comment-2")
                 .build());
 
-        tempEvent.setDocter(doc2);
-        doc2.getOwnEvents().add(tempEvent);
-        tempEvent = eventRepository.save(Event.builder()
+        tempPatient.setDocter(doc2);
+        doc2.getOwnEvents().add(tempPatient);
+        tempPatient = patientRepository.save(Patient.builder()
 
                 .name("Tara")
                 .surname("Hastings")
@@ -81,9 +81,9 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .commentTest("comment-3")
                 .build());
 
-        tempEvent.setDocter(doc3);
-        doc3.getOwnEvents().add(tempEvent);
-        tempEvent = eventRepository.save(Event.builder()
+        tempPatient.setDocter(doc3);
+        doc3.getOwnEvents().add(tempPatient);
+        tempPatient = patientRepository.save(Patient.builder()
 
                 .name("Will")
                 .surname("Dickens")
@@ -95,9 +95,9 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .commentTest("comment-4")
                 .build());
 
-        tempEvent.setDocter(doc1);
-        doc1.getOwnEvents().add(tempEvent);
-        tempEvent = eventRepository.save(Event.builder()
+        tempPatient.setDocter(doc1);
+        doc1.getOwnEvents().add(tempPatient);
+        tempPatient = patientRepository.save(Patient.builder()
 
                 .name("Daniel")
                 .surname("Lees")
@@ -109,9 +109,9 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .commentTest("comment-5")
                 .build());
 
-        tempEvent.setDocter(doc1);
-        doc1.getOwnEvents().add(tempEvent);
-        tempEvent = eventRepository.save(Event.builder()
+        tempPatient.setDocter(doc1);
+        doc1.getOwnEvents().add(tempPatient);
+        tempPatient = patientRepository.save(Patient.builder()
 
                 .name("Farzana")
                 .surname("Rennie")
@@ -123,9 +123,9 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .commentTest("comment-6")
                 .build());
 
-        tempEvent.setDocter(doc2);
-        doc2.getOwnEvents().add(tempEvent);
-        tempEvent = eventRepository.save(Event.builder()
+        tempPatient.setDocter(doc2);
+        doc2.getOwnEvents().add(tempPatient);
+        tempPatient = patientRepository.save(Patient.builder()
 
                 .name("Ishaaq")
                 .surname("Brook")
@@ -137,9 +137,9 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .commentTest("comment-7")
                 .build());
 
-        tempEvent.setDocter(doc3);
-        doc3.getOwnEvents().add(tempEvent);
-        tempEvent = eventRepository.save(Event.builder()
+        tempPatient.setDocter(doc3);
+        doc3.getOwnEvents().add(tempPatient);
+        tempPatient = patientRepository.save(Patient.builder()
 
                 .name("Mia-Rose")
                 .surname("Zamora")
@@ -151,9 +151,9 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .commentTest("comment-8")
                 .build());
 
-        tempEvent.setDocter(doc1);
-        doc1.getOwnEvents().add(tempEvent);
-        tempEvent = eventRepository.save(Event.builder()
+        tempPatient.setDocter(doc1);
+        doc1.getOwnEvents().add(tempPatient);
+        tempPatient = patientRepository.save(Patient.builder()
 
                 .name("Yvette")
                 .surname("Hendricks")
@@ -165,9 +165,9 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .commentTest("comment-9")
                 .build());
 
-        tempEvent.setDocter(doc1);
-        doc1.getOwnEvents().add(tempEvent);
-        tempEvent = eventRepository.save(Event.builder()
+        tempPatient.setDocter(doc1);
+        doc1.getOwnEvents().add(tempPatient);
+        tempPatient = patientRepository.save(Patient.builder()
 
                 .name("Aleeza")
                 .surname("Alford")
@@ -178,8 +178,8 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .secondDose("Pfizer")
                 .commentTest("comment-10")
                 .build());
-        tempEvent.setDocter(doc1);
-        doc1.getOwnEvents().add(tempEvent);
+        tempPatient.setDocter(doc1);
+        doc1.getOwnEvents().add(tempPatient);
         addUser();
         doc1.setUser(user1);
         user1.setDoctor(doc1);

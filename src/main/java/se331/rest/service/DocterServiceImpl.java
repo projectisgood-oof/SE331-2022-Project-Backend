@@ -7,8 +7,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import se331.rest.dao.DocterDao;
 import se331.rest.entity.Docter;
-import se331.rest.entity.Event;
-
 import java.util.List;
 
 @Service

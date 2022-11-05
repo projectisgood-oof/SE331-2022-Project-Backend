@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class EventDTO {
+public class PatientDTO {
     Long id;
     String name;
     String surname;
@@ -20,5 +20,5 @@ public class EventDTO {
     String firstDose;
     String secondDose;
     String commentTest;
-    EventDocterDTO doctor;
+    PatientDocterDTO doctor;
 }
