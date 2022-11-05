@@ -65,4 +65,5 @@ public class User {
     @OneToOne
      Docter doctor;
 
+
 }

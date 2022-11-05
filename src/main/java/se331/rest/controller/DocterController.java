@@ -15,12 +15,12 @@ import se331.rest.util.LabMapper2;
 public class DocterController {
     @Autowired
     DocterService docterService;
-    @GetMapping("/docters")
+    @GetMapping("/doctors")
     ResponseEntity<?> getDocters(){
         return ResponseEntity.ok(LabMapper2.INSTANCE.getDocterDTO(docterService.getAllDocter()));
     }
 
-    @GetMapping("docters/{id}")
+    @GetMapping("doctors/{id}")
     public ResponseEntity<?> getDocter(@PathVariable("id") Long id) {
         Docter output = docterService.getDocter(id);
         if(output != null){

@@ -5,7 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 import se331.rest.entity.Docter;
-import se331.rest.repository.DocterRepository;
+import se331.rest.repository.DoctorRepository;
 
 import java.util.Optional;
 
@@ -13,7 +13,7 @@ import java.util.Optional;
 @Repository
 public class DocterDaoImpl implements DocterDao {
     @Autowired
-    DocterRepository docterRepository;
+    DoctorRepository docterRepository;
 
     @Override
     public Integer getDocterSize() {

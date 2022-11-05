@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import se331.rest.entity.Docter;
 import se331.rest.entity.Patient;
-import se331.rest.repository.DocterRepository;
+import se331.rest.repository.DoctorRepository;
 import se331.rest.repository.PatientRepository;
 import se331.rest.security.entity.Authority;
 import se331.rest.security.entity.AuthorityName;
@@ -27,7 +27,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
     @Autowired
     PatientRepository patientRepository;
     @Autowired
-    DocterRepository docterRepository;
+    DoctorRepository docterRepository;
 
     @Autowired
     AuthorityRepository authorityRepository;

@@ -12,6 +12,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.*;
+import se331.rest.repository.DoctorRepository;
+import se331.rest.repository.PatientRepository;
 import se331.rest.security.entity.JwtUser;
 import se331.rest.security.entity.User;
 import se331.rest.security.repository.UserRepository;
@@ -40,6 +42,12 @@ public class AuthenticationRestController {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    DoctorRepository doctorRepository;
+
+    @Autowired
+    PatientRepository patientRepository;
+
     @PostMapping("${jwt.route.authentication.path}")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtAuthenticationRequest authenticationRequest) throws AuthenticationException {
 
@@ -57,6 +65,7 @@ public class AuthenticationRestController {
         final String token = jwtTokenUtil.generateToken(userDetails);
         Map result = new HashMap();
         result.put("token", token);
+
 //        User user = userRepository.findById(((JwtUser)
 //        userDetails).getId()).orElse(null){
 //
