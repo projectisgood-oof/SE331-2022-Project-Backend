@@ -23,5 +23,8 @@ public interface LabMapper2 {
             expression = "java(doctor.getUser().getAuthorities().stream().map(auth -> auth.getName().name()).collect(Collectors.toList()))")
     DoctorAuthDTO getDoctorAuthDTO(Docter doctor);
 
+    CommentDTO getCommentDTO(Comment comment);
+
+    List<CommentDTO> getCommentDTO(List<Comment> comments);
 
 }

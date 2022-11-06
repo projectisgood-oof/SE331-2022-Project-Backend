@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 @Data
 @Builder
 @NoArgsConstructor
@@ -20,5 +21,6 @@ public class PatientDTO {
     String firstDose;
     String secondDose;
     String commentTest;
-    PatientDocterDTO doctor;
+    PatientDocterDTO docter;
+    List<PatientCommentDTO> comment;
 }

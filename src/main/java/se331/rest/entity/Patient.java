@@ -3,6 +3,7 @@ package se331.rest.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -28,5 +29,8 @@ public class Patient {
     @ManyToMany(mappedBy = "eventHistory")
     List<Participant> participants;
 
+    @OneToMany(mappedBy = "patients")
+    @Builder.Default
+    List<Comment> comment = new ArrayList<>();
 
 }

@@ -24,7 +24,7 @@ public class PatientController {
     public ResponseEntity<?> getEventLists(@RequestParam(value = "_limit", required = false) Integer perPage
             , @RequestParam(value = "_page", required = false) Integer page,
                                            @RequestParam(value = "title", required = false) String title) {
-        perPage = perPage ==null ? 3 : perPage;
+        perPage = perPage ==null ? 6 : perPage;
         page = page == null ? 1 : page ;
         Page<Patient> pageOutput;
         if(title == null) {
