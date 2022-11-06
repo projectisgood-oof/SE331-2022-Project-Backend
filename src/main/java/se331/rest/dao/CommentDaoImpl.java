@@ -22,11 +22,6 @@ public class CommentDaoImpl implements CommentDao{
     }
 
     @Override
-    public Comment findByID(Long id) {
-        return commentRepository.findById(id).orElse(null);
-    }
-
-    @Override
     public Comment save(Comment comment) {
         return commentRepository.save(comment);
     }

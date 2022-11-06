@@ -66,8 +66,6 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .build());
 
         tempPatient.setDocter(doc1);
-        tempPatient.getComment().add(com1);
-        com1.setPatients(tempPatient);
         doc1.getOwnEvents().add(tempPatient);
         tempPatient = patientRepository.save(Patient.builder()
 
@@ -82,8 +80,6 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .build());
 
         tempPatient.setDocter(doc2);
-        tempPatient.getComment().add(com2);
-        com2.setPatients(tempPatient);
         doc2.getOwnEvents().add(tempPatient);
         tempPatient = patientRepository.save(Patient.builder()
 
@@ -98,8 +94,6 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .build());
 
         tempPatient.setDocter(doc3);
-        tempPatient.getComment().add(com3);
-        com3.setPatients(tempPatient);
         doc3.getOwnEvents().add(tempPatient);
         tempPatient = patientRepository.save(Patient.builder()
 
@@ -114,8 +108,6 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .build());
 
         tempPatient.setDocter(doc1);
-        tempPatient.getComment().add(com1);
-        com1.setPatients(tempPatient);
         doc1.getOwnEvents().add(tempPatient);
         tempPatient = patientRepository.save(Patient.builder()
 
@@ -130,8 +122,6 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .build());
 
         tempPatient.setDocter(doc1);
-        tempPatient.getComment().add(com3);
-        com3.setPatients(tempPatient);
         doc1.getOwnEvents().add(tempPatient);
         tempPatient = patientRepository.save(Patient.builder()
 
@@ -146,8 +136,6 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .build());
 
         tempPatient.setDocter(doc2);
-        tempPatient.getComment().add(com2);
-        com2.setPatients(tempPatient);
         doc2.getOwnEvents().add(tempPatient);
         tempPatient = patientRepository.save(Patient.builder()
 
@@ -162,8 +150,6 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .build());
 
         tempPatient.setDocter(doc3);
-        tempPatient.getComment().add(com1);
-        com1.setPatients(tempPatient);
         doc3.getOwnEvents().add(tempPatient);
         tempPatient = patientRepository.save(Patient.builder()
 
@@ -178,8 +164,6 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .build());
 
         tempPatient.setDocter(doc1);
-        tempPatient.getComment().add(com1);
-        com1.setPatients(tempPatient);
         doc1.getOwnEvents().add(tempPatient);
         tempPatient = patientRepository.save(Patient.builder()
 
@@ -194,8 +178,6 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .build());
 
         tempPatient.setDocter(doc1);
-        tempPatient.getComment().add(com2);
-        com2.setPatients(tempPatient);
         doc1.getOwnEvents().add(tempPatient);
         tempPatient = patientRepository.save(Patient.builder()
 
@@ -209,8 +191,6 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .commentTest("comment-10")
                 .build());
         tempPatient.setDocter(doc1);
-        tempPatient.getComment().add(com1);
-        com1.setPatients(tempPatient);
         doc1.getOwnEvents().add(tempPatient);
         addUser();
         doc1.setUser(user1);

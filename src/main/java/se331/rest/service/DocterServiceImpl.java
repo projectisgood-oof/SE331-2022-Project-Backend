@@ -7,6 +7,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import se331.rest.dao.DocterDao;
 import se331.rest.entity.Docter;
+
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -28,6 +30,10 @@ public class DocterServiceImpl implements DocterService{
         return docterDao.getDocter(id);
     }
 
-
+    @Override
+    @Transactional
+    public Docter save(Docter doctor) {
+        return docterDao.save(doctor);
+    }
 
 }

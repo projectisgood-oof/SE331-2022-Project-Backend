@@ -22,5 +22,6 @@ public class PatientDTO {
     String secondDose;
     String commentTest;
     PatientDocterDTO docter;
-    List<PatientCommentDTO> comment;
+    List<PatientCommentDTO> comments;
+
 }

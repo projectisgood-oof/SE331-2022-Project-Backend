@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import se331.rest.entity.Patient;
 import se331.rest.repository.PatientRepository;
 
+import java.util.Optional;
+
 @Profile("db")
 @Repository
 @Service
@@ -43,5 +45,9 @@ public class PatientDaoDbImpl implements PatientDao {
         //return paitentRepository.findByNameContainingOrAgeContainingOrVaccinateStatusIgnoreCaseContaining(name,name,name,page);
 
     }
+    @Override
+    public Optional<Patient> findById(Long id) {
+        return paitentRepository.findById(id);
 
+    }
 }

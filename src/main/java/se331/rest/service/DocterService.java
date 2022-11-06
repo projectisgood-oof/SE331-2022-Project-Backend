@@ -10,4 +10,6 @@ public interface DocterService {
     Page<Docter> getDocter(Integer page, Integer pageSize);
 
     Docter getDocter(Long id);
+
+    Docter save(Docter docter);
 }

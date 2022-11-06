@@ -10,6 +10,6 @@ import lombok.*;
 public class CommentDTO {
     Long id;
     String comment;
-    DocterChainPatientDTO docter;
-    PatientChainDTO patients;
+    DocterCommentDTO comBy;
+    PatientChainDTO comTo;
 }

@@ -8,5 +8,5 @@ import lombok.*;
 @AllArgsConstructor
 public class DocterCommentDTO {
     Long id;
-    String comment;
+    String name;
 }

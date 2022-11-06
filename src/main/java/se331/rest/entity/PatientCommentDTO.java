@@ -8,5 +8,5 @@ import lombok.*;
 public class PatientCommentDTO {
     Long id;
     String comment;
-    DocterChainPatientDTO docter;
+    DocterCommentDTO comBy;
 }

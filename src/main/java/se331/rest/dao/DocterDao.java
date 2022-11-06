@@ -10,7 +10,11 @@ public interface DocterDao {
 
     Integer getDocterSize();
     Page<Docter> getDocter(Pageable pageRequest);
-
+    Docter save(Docter doctor);
     Docter getDocter(Long id);
-        Optional<Docter> findById(Long id);
+    Optional<Docter> findById(Long id);
+
+    Page<Docter> getDoctors(Integer pageSize, Integer page);
+
+    Page<Docter> getDoctors(String name, Pageable page);
 }

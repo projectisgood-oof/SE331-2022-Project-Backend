@@ -26,11 +26,8 @@ public class Patient {
     String commentTest;
     @ManyToOne
     Docter docter;
-    @ManyToMany(mappedBy = "eventHistory")
-    List<Participant> participants;
+    @OneToMany(mappedBy = "comTo")
+    List<Comment> comments = new ArrayList<>();
 
-    @OneToMany(mappedBy = "patients")
-    @Builder.Default
-    List<Comment> comment = new ArrayList<>();
 
 }

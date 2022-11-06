@@ -17,9 +17,9 @@ public class Comment {
     String comment;
 
     @OneToOne
-    Docter docter;
+    Docter comBy;
 
     @ManyToOne
-    Patient patients;
+    Patient comTo;
 
 }
