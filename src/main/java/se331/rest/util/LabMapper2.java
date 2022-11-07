@@ -4,7 +4,8 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 import se331.rest.entity.*;
-import se331.rest.security.entity.DoctorAuthDTO;
+import se331.rest.security.entity.User;
+import se331.rest.security.entity.UserDTO;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,12 +22,28 @@ public interface LabMapper2 {
     List<DocterDTO> getDocterDTO(List<Docter> docters);
 
 
+    @Mapping(target = "authorities",
+            expression = "java(admin.getUser().getAuthorities().stream().map(auth -> auth.getName().name()).collect(Collectors.toList()))")
+    AdminAuthDTO getAdminAuthDTO(Admin admin);
+
     @Mapping( target = "authorities",
             expression = "java(doctor.getUser().getAuthorities().stream().map(auth -> auth.getName().name()).collect(Collectors.toList()))")
-    DoctorAuthDTO getDoctorAuthDTO(Docter doctor);
+    DocterAuthDTO getDoctorAuthDTO(Docter doctor);
+
+    @Mapping(target = "authorities",
+            expression = "java(patient.getUser().getAuthorities().stream().map(auth -> auth.getName().name()).collect(Collectors.toList()))")
+    PatientAuthDTO getPatientAuthDTO(Patient patient);
 
     CommentDTO getCommentDTO(Comment comment);
 
     List<CommentDTO> getCommentDTO(List<Comment> comments);
+
+    AdminDTO getAdminDTO(Admin admin);
+
+    List<AdminDTO> getAdminDTO(List<Admin> admin);
+
+    UserDTO getUserDTO(User user);
+
+    List<UserDTO> getUserDTO(List<User> user);
 
 }

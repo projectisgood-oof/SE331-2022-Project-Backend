@@ -22,4 +22,5 @@ public class DocterOwnEventsDTO {
     String secondDose;
     String commentTest;
     List<Participant> participants;
+    List<DocterCommentDTO> comment;
 }

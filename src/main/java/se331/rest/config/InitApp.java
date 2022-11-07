@@ -8,9 +8,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+import se331.rest.entity.Admin;
 import se331.rest.entity.Comment;
 import se331.rest.entity.Docter;
 import se331.rest.entity.Patient;
+import se331.rest.repository.AdminRepository;
 import se331.rest.repository.CommentRepository;
 import se331.rest.repository.DoctorRepository;
 import se331.rest.repository.PatientRepository;
@@ -33,28 +35,41 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
 
     @Autowired
     AuthorityRepository authorityRepository;
+
     @Autowired
     UserRepository userRepository;
 
     @Autowired
     CommentRepository commentRepository;
 
+    @Autowired
+    AdminRepository adminRepository;
+
+
     @Override
     @Transactional
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
-        Docter doc1,doc2,doc3;
-        doc1 = docterRepository.save(Docter.builder().name("Dr'Pop").build());
-        doc2 = docterRepository.save(Docter.builder().name("Dr'Pon").build());
-        doc3 = docterRepository.save(Docter.builder().name("Dr'Phone").build());
+        addUser();
+        Admin admin1;
+        admin1 = adminRepository.save(Admin.builder()
+                .name("Admin")
+                .user(user1)
+                .build());
+        user1.setAdmin(admin1);
+        user1.setFirstname(admin1.getName());
 
         Comment com1, com2, com3;
         com1 = commentRepository.save(Comment.builder().comment("Need to check more.").build());
         com2 = commentRepository.save(Comment.builder().comment("Very Healthy.").build());
         com3 = commentRepository.save(Comment.builder().comment("Too weak for playing sports.").build());
 
-        Patient tempPatient;
-        tempPatient = patientRepository.save(Patient.builder()
+        Docter doc1,doc2,doc3;
+        doc1 = docterRepository.save(Docter.builder().name("Dr'Pop").build());
+        doc2 = docterRepository.save(Docter.builder().name("Dr'Pon").build());
+        doc3 = docterRepository.save(Docter.builder().name("Dr'Phone").build());
 
+        Patient tempPatient = null;
+        tempPatient = patientRepository.save(Patient.builder()
                 .name("Jevan")
                 .surname("Wilson")
                 .homeTown("907 Pennington Lane Ankeny, IA 50023")
@@ -64,11 +79,13 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .secondDose("Janssen")
                 .commentTest("comment-1")
                 .build());
-
+        tempPatient.getComments().add(com1);
         tempPatient.setDocter(doc1);
         doc1.getOwnEvents().add(tempPatient);
-        tempPatient = patientRepository.save(Patient.builder()
+        tempPatient.setUser(user3);
+        user3.setPatient(tempPatient);
 
+        tempPatient = patientRepository.save(Patient.builder()
                 .name("Evelyn")
                 .surname("Horne")
                 .homeTown("8657 Prairie Drive Reynoldsburg, OH 43068")
@@ -78,11 +95,13 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .secondDose("-")
                 .commentTest("comment-2")
                 .build());
-
+        tempPatient.getComments().add(com1);
         tempPatient.setDocter(doc2);
         doc2.getOwnEvents().add(tempPatient);
-        tempPatient = patientRepository.save(Patient.builder()
+        tempPatient.setUser(user3);
+        user3.setPatient(tempPatient);
 
+        tempPatient = patientRepository.save(Patient.builder()
                 .name("Tara")
                 .surname("Hastings")
                 .homeTown("9728 North Ridgewood Drive Randallstown, MD 21133")
@@ -92,11 +111,13 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .secondDose("Sinopharm")
                 .commentTest("comment-3")
                 .build());
-
+        tempPatient.getComments().add(com2);
         tempPatient.setDocter(doc3);
         doc3.getOwnEvents().add(tempPatient);
-        tempPatient = patientRepository.save(Patient.builder()
+        tempPatient.setUser(user3);
+        user3.setPatient(tempPatient);
 
+        tempPatient = patientRepository.save(Patient.builder()
                 .name("Will")
                 .surname("Dickens")
                 .homeTown("7826 Prince Rd. Newark, NJ 07103")
@@ -106,11 +127,13 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .secondDose("Janssen")
                 .commentTest("comment-4")
                 .build());
-
+        tempPatient.getComments().add(com2);
         tempPatient.setDocter(doc1);
         doc1.getOwnEvents().add(tempPatient);
-        tempPatient = patientRepository.save(Patient.builder()
+        tempPatient.setUser(user3);
+        user3.setPatient(tempPatient);
 
+        tempPatient = patientRepository.save(Patient.builder()
                 .name("Daniel")
                 .surname("Lees")
                 .homeTown("231 Bedford Street Canal Winchester, OH 43110")
@@ -120,11 +143,13 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .secondDose("-")
                 .commentTest("comment-5")
                 .build());
-
+        tempPatient.getComments().add(com3);
         tempPatient.setDocter(doc1);
         doc1.getOwnEvents().add(tempPatient);
-        tempPatient = patientRepository.save(Patient.builder()
+        tempPatient.setUser(user3);
+        user3.setPatient(tempPatient);
 
+        tempPatient = patientRepository.save(Patient.builder()
                 .name("Farzana")
                 .surname("Rennie")
                 .homeTown("7578 NW. Green Street Taunton, MA 02780")
@@ -134,11 +159,13 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .secondDose("Janssen")
                 .commentTest("comment-6")
                 .build());
-
+        tempPatient.getComments().add(com3);
         tempPatient.setDocter(doc2);
         doc2.getOwnEvents().add(tempPatient);
-        tempPatient = patientRepository.save(Patient.builder()
+        tempPatient.setUser(user3);
+        user3.setPatient(tempPatient);
 
+        tempPatient = patientRepository.save(Patient.builder()
                 .name("Ishaaq")
                 .surname("Brook")
                 .homeTown("494 Wintergreen St. Berwyn, IL 60402")
@@ -148,11 +175,13 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .secondDose("-")
                 .commentTest("comment-7")
                 .build());
+        tempPatient.getComments().add(com2);
+        tempPatient.setDocter(doc1);
+        doc1.getOwnEvents().add(tempPatient);
+        tempPatient.setUser(user3);
+        user3.setPatient(tempPatient);
 
-        tempPatient.setDocter(doc3);
-        doc3.getOwnEvents().add(tempPatient);
         tempPatient = patientRepository.save(Patient.builder()
-
                 .name("Mia-Rose")
                 .surname("Zamora")
                 .homeTown("8400 Inverness Avenue Boca Raton, FL 33428")
@@ -162,11 +191,13 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .secondDose("-")
                 .commentTest("comment-8")
                 .build());
+        tempPatient.getComments().add(com1);
+        tempPatient.setDocter(doc2);
+        doc2.getOwnEvents().add(tempPatient);
+        tempPatient.setUser(user3);
+        user3.setPatient(tempPatient);
 
-        tempPatient.setDocter(doc1);
-        doc1.getOwnEvents().add(tempPatient);
         tempPatient = patientRepository.save(Patient.builder()
-
                 .name("Yvette")
                 .surname("Hendricks")
                 .homeTown("3 Smith Drive Kingsport, TN 37660")
@@ -176,11 +207,13 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .secondDose("Oxford")
                 .commentTest("comment-9")
                 .build());
-
+        tempPatient.getComments().add(com3);
         tempPatient.setDocter(doc1);
         doc1.getOwnEvents().add(tempPatient);
-        tempPatient = patientRepository.save(Patient.builder()
+        tempPatient.setUser(user3);
+        user3.setPatient(tempPatient);
 
+        tempPatient = patientRepository.save(Patient.builder()
                 .name("Aleeza")
                 .surname("Alford")
                 .homeTown("723 North Carson Dr. Owensboro, KY 42301")
@@ -190,15 +223,18 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .secondDose("Pfizer")
                 .commentTest("comment-10")
                 .build());
-        tempPatient.setDocter(doc1);
-        doc1.getOwnEvents().add(tempPatient);
-        addUser();
-        doc1.setUser(user1);
-        user1.setDoctor(doc1);
+        tempPatient.getComments().add(com1);
+        tempPatient.setDocter(doc2);
+        doc2.getOwnEvents().add(tempPatient);
+        tempPatient.setUser(user3);
+        user3.setPatient(tempPatient);
+
+        doc1.setUser(user2);
+        user2.setDoctor(doc1);
         doc2.setUser(user2);
         user2.setDoctor(doc2);
-        doc3.setUser(user3);
-        user3.setDoctor(doc3);
+        doc3.setUser(user2);
+        user2.setDoctor(doc3);
 
     }
     User user1, user2, user3;
@@ -209,7 +245,9 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 Authority.builder().name(AuthorityName.ROLE_USER).build();
         Authority authAdmin =
                 Authority.builder().name(AuthorityName.ROLE_ADMIN).build();
-        Authority.builder().name(AuthorityName.ROLE_ADMIN).build();
+        Authority authDoctor =
+                Authority.builder().name(AuthorityName.ROLE_DOCTOR).build();
+
         user1 = User.builder()
                 .username("admin")
                 .password(encoder.encode("admin"))
@@ -240,12 +278,14 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .lastPasswordResetDate(Date.from(LocalDate.of(2021, 01, 01).atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
 
-        authorityRepository.save(authUser);
         authorityRepository.save(authAdmin);
-        user1.getAuthorities().add(authUser);
+        authorityRepository.save(authDoctor);
+        authorityRepository.save(authUser);
+
         user1.getAuthorities().add(authAdmin);
-        user2.getAuthorities().add(authUser);
+        user2.getAuthorities().add(authDoctor);
         user3.getAuthorities().add(authUser);
+
         userRepository.save(user1);
         userRepository.save(user2);
         userRepository.save(user3);

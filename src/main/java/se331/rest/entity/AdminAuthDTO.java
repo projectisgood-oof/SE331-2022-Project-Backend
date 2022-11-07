@@ -1,12 +1,15 @@
 package se331.rest.entity;
+
 import lombok.*;
+
+import java.util.List;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PatientCommentDTO {
+public class AdminAuthDTO {
     Long id;
-    String comment;
-    DocterPatientDTO comBy;
+    String name;
+    List<String> authorities;
 }

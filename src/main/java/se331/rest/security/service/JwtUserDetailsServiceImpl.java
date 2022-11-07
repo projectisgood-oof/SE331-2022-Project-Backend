@@ -1,4 +1,4 @@
-package se331.rest.security.repository.service;
+package se331.rest.security.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -7,7 +7,7 @@ import se331.rest.entity.Comment;
 public interface CommentDao {
     Page<Comment> getComment(Pageable pagerequest);
 
-    //Comment findByID(Long id);
+    Comment findByID(Long id);
 
     Comment save(Comment comment);
 }
